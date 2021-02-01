@@ -4,46 +4,17 @@
 
 <!-- Carousel of Index Page -->
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/project1/img/carouselpresse.jpg" class="d-block w-100" alt="site">
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="carousel_text">Our site</h5>
-                <p class="carousel_text">The place where we work</p>
-            </div>
+            <img src="/project1/img/bannierejournaux2.jpg" class="d-block w-100" alt="site">
         </div>
         <div class="carousel-item">
-            <img src="/project1/img/carouselshop.jpg" class="d-block w-100" alt="shop">
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="carousel_text">Our Shop</h5>
-                <a href="/project1/shop.php">
-                    <p class="carousel_text">All products here for you</p>
-                </a>
-            </div>
+            <img src="/project1/img/bannierejournaux1.jpg" class="d-block w-100" alt="shop">
         </div>
         <div class="carousel-item">
-            <img src="/project1/img/contactcarousel.jpg" class="d-block w-100" alt="contact">
-            <div class="carousel-caption d-none d-md-block">
-                <h5 class="carousel_text">Contact us</h5>
-                <a href="/project1/contact.php">
-                    <p class="carousel_text">All askings deserve answers</p>
-                </a>
-            </div>
+            <img src="/project1/img/banniere-contact.jpg" class="d-block w-100" alt="contact">
         </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 <br>
 

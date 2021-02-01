@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Upload Pics
+ *
+ * @param [int] $product_id
+ * @return void
+ */
 function upload($product_id)
 {
     $j = 0; // variable for indexing uploaded image
@@ -30,4 +35,37 @@ function upload($product_id)
     }
 }
 
-?>
+/**
+ * Upload Files for Reclams
+ *
+ * @param [int] $reclam_id
+ * @return void
+ */
+function uploadDoc($reclam_id)
+{
+    $j = 0;
+    $target_path = "../files/upload/"; 
+    for ($i = 0; $i < count($_FILES['file']['name']); $i++) { 
+        $validextensions = array("pdf", "doc", "docx","xls");
+        $ext = explode('.', basename($_FILES['file']['name'][$i]));
+        $file_extension = end($ext); 
+        $target_path = $target_path . uniqid() . "." . $ext[count($ext) - 1]; //set the target path with a new name of image
+        $j = $j + 1;
+        // var_dump($target_path,$file_extension, $validextensions,$_FILES['file']['size'][$i]);
+        // die();
+        if (($_FILES['file']['size'][$i] < 2000000) //Approx 2MB files can be uploaded
+            && in_array($file_extension, $validextensions)
+        ) {
+        //     var_dump(move_uploaded_file(@$_FILES['file']['tmp_name'][$i], $target_path));
+        // die();
+            if (move_uploaded_file(@$_FILES['file']['tmp_name'][$i], $target_path)) {
+                echo $j . ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
+                file_name(basename($target_path), $reclam_id);
+            } else { //if file was not moved
+                echo $j . ').<span id="error">please try again.</span><br/><br/>';
+            }
+        } else { //if file size and file type was incrrect.
+            echo $j . ').<span id="error">***Invalid file Size or Type</span><br/><br/>';
+        }
+    }
+}

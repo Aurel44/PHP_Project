@@ -1,34 +1,52 @@
 <?php include_once "header.php" ?>
+<?php
 
+//Variables
+$user_id = @$_SESSION["user_id"];
+$reclam_category_id = @$_POST["reclam_category_id"];
+$reclam_text = @$_POST["reclam_text"];
+
+// Add Products
+if (@$_POST["addreclam"]) {
+    // var_dump($reclam_text,$user_id,$reclam_category_id);
+    // die();
+    addReclams($reclam_text, $user_id, $reclam_category_id);
+    unset($_POST);
+}
+
+$listReclamCategory = listReclamCategory();
+?>
 
 <div class="container container_contact">
     <div class="row">
 
         <!-- Contact Form -->
         <div class="col-sm-12 col-md-8 col-lg-6">
-            <form>
+            <form method="POST" enctype="multipart/form-data">
                 <fieldset>
                     <legend>Let us your comments or reclams</legend>
                     <div class="form-group">
                         <label for="exampleSelect1">Select category</label>
                         <select class="form-control" id="exampleSelect1">
-                            <option>Select a category</option>
-                            <option>Comments</option>
-                            <option>Reclams</option>
-                            <option>Transports</option>
-                            <option>Commercial</option>
-                            <option>Compta</option>
+                            <option value="" selected>Select a category</option>
+                            <?php foreach ($listReclamCategory as $row) { ?>
+                                <option value="<?= @$row["reclam_category_id"] ?>" <?php if (@$_POST["reclam_category_id"] == $row["reclam_category_id"]) {
+                                                                                        echo "selected";
+                                                                                    } ?>>
+                                    <?= $row["reclam_category_name"] ?>
+                                </option>
+                            <?php } ?>
+                            <input type="hidden" name="reclam_category_id" value="<?= @$row["reclam_category_id"] ?>">
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" id="comment" rows="8" placeholder="Write here please."></textarea>
+                        <textarea class="form-control" name="reclam_text" id="comment" rows="8" placeholder="Write here please."></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputFile">Add Files</label>
-                        <input type="file" class="form-control-file" id="file[]" aria-describedby="fileHelp">
+                        <input type="file" class="form-control-file" name="file[]" aria-describedby="fileHelp" multiple />
                     </div>
-                    <button type="submit" class="btn">Submit</button>
-                    <br><br>
+                    <input type="submit" name="addreclam" class="btn">
                 </fieldset>
             </form>
         </div>

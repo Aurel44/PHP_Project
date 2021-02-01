@@ -16,12 +16,14 @@ if (@$_POST["minus"]) {
         deleteProdInCart($product_id, $user_id);
     } else {
         updateProdInCart($product_quantity, $product_id, $user_id);
+        header('Location:cart.php');
     }
 }
 if (@$_POST["plus"]) {
     $product_quantity = $selectCartId["product_quantity"];
     $product_quantity++;
     updateProdInCart($product_quantity, $product_id, $user_id);
+    header('Location:cart.php');
 }
 
 if (@$_POST["delete"]) {
@@ -61,7 +63,7 @@ $total = total($listProdInCart, $total);
                         <input type="hidden" name="product_id" value="<?= $row["product_id"] ?>">
                         <div class="item">
                             <div class="quantity">
-                                <button class="delete-btn" type="submit" name="delete" value="delete">
+                                <button class="delete-btn1" type="submit" name="delete" value="delete">
                                     <i class="far fa-trash-alt"></i>
                                 </button>
                             </div>
@@ -73,11 +75,11 @@ $total = total($listProdInCart, $total);
                             </div>
 
                             <div class="quantity">
-                                <button class="minus-btn" type="submit" name="minus" value="minus">
+                                <button class="minus-btn1" type="submit" name="minus" value="minus">
                                     <i class="fas fa-minus-square"></i>
                                 </button>
                                 <input type="text" name="name" value="<?= $row["product_quantity"] ?>">
-                                <button class="plus-btn" type="submit" name="plus" value="plus">
+                                <button class="plus-btn1" type="submit" name="plus" value="plus">
                                     <i class="fas fa-plus-square"></i>
                                 </button>
                             </div>
