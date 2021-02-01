@@ -9,13 +9,17 @@ $selectCartId = selectCartId($product_id, $user_id);
 
 // Function Calls
 if (@$_POST["add"]) {
-    if (!$selectCartId) {
-        setProdInCart($product_id, $user_id);
+    if (@$_SESSION["user_id"]) {
+        if (!$selectCartId) {
+            setProdInCart($product_id, $user_id);
+        } else {
+            $product_quantity = $selectCartId["product_quantity"];
+            $product_quantity++;
+            $updateprod = updateProdInCart($product_quantity, $product_id, $user_id);
+            header('Location: singlearticle.php?id=' . $_GET["id"] . ' ');
+        }
     } else {
-        $product_quantity = $selectCartId["product_quantity"];
-        $product_quantity++;
-        $updateprod = updateProdInCart($product_quantity, $product_id, $user_id);
-        header('Location: singlearticle.php?id='.$_GET["id"].' ');
+        header('Location: logandsign.php');
     }
 }
 
@@ -90,9 +94,9 @@ $listComments = listComment($product_id);
                     Price : <?= number_format($descriProduct["product_price"], 2, ',', ' ') . " Euros" ?>
                 </div>
                 <br>
-                <div class="article_stock">
+                <!-- <div class="article_stock">
                     In Stock : <?= "<em>" . $descriProduct["product_stock"] . " pdts</em>" ?>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

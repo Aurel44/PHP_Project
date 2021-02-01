@@ -47,7 +47,7 @@ if ((@$_GET["q"]) and !empty(@$_GET["q"])) {
                         <div class="card-title"><?= $row["product_name"] ?></div>
                     </div>
                     <div class="card_button">
-                        <a href="/project1/singlearticle.php?id=<?= $row['product_id'] ?>" class="btn btn-primary">More ...</a>
+                        <a href="/project1/singlearticle.php?id=<?= $row['product_id'] ?>" class="btn btn-primary">Go to Product</a>
                     </div>
                 </div>
             <?php } ?>

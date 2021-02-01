@@ -39,6 +39,7 @@ $prodById = prodById($product_id);
             <div id="modify">
                 <form action="" method="POST">
                     <fieldset>
+                    <h4>Modify a Product</h4>
                         <div class="form-group">
                             <label for="category_id">Category</label>
                             <select class="form-control" name="category_id" id="category_id" onChange="submit()" required>
@@ -99,6 +100,7 @@ $prodById = prodById($product_id);
             <div id="delete">
                 <form action="" method="POST">
                     <fieldset>
+                    <h4>Delete a Product</h4>
                         <div class="form-group">
                             <label for="category_id">Category</label>
                             <select class="form-control" name="category_id" id="category_id" onChange="submit()" required>

@@ -12,8 +12,8 @@
 html,
 body {
   width: 100%;
-  height: 100%;
-  min-height: 100%;
+  // height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
@@ -47,25 +47,33 @@ a {
   position: relative;
   bottom: 0;
   width: 100%;
-  padding-top: 50px;
   text-align: center;
   vertical-align: middle;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 15px 0;
+  text-align: left;
+  color: #aaa;
 }
 
 // Index Page
-.carousel-item{
-  transition: transform 4s ease; 
-  opacity: .5s ease-out;
+.carousel-item {
+  transition: transform 4s ease;
+  opacity: 0.5s ease-out;
 }
 .carousel_text {
   font-weight: bolder;
   color: var(--brickred);
 }
 .p_justify {
-  justify-content: justify;
+  padding: 30px;
+  text-align: justify;
 }
 
 // Shop Page
+.container_shop {
+  min-height: 70vh;
+}
 ul {
   list-style: none;
 }
@@ -87,28 +95,54 @@ ul {
 .card {
   width: 200px;
   margin: 10px;
+  box-shadow: rgba(50, 50, 93, 0.35) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.4) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.45) 0px -2px 6px 0px inset;
 }
 .card_button {
   text-align: center;
+  padding-bottom: 5px;
+}
+.card-img-top {
+  text-align: center;
+  width: 150px;
+  height: 150px;
 }
 .card_img {
+  text-align: center;
+  vertical-align: middle;
+  padding: 15px;
   width: 200px;
   height: 200px;
-  overflow: hidden;
+  // overflow: hidden;
+}
+.card-body {
+  padding: 10px;
+}
+.card-title {
+  vertical-align: auto;
+  text-align: center;
+  justify-content: center;
+  height: 95px;
+  margin: 0;
 }
 
 // SingleArticle Page
-.container_product{
-  margin-top: 30px ;
+.container_product {
+  margin-top: 30px;
+  box-shadow: rgba(50, 50, 93, 0.2) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.2) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.25) 0px -2px 6px 0px inset;
 }
 .container_article {
+  padding-top: 60px;
   height: 500px;
   // padding: 20px 10px 0 10px;
 }
-.img{
+.img {
   text-align: center;
 }
-.article_name{
+.article_name {
   font-weight: bolder;
   font-size: x-large;
 }
@@ -156,7 +190,7 @@ ul {
     0 7px 0 rgba(0, 0, 0, 0.2);
 }
 .container_logsign {
-  height: 600px;
+  height: 500px;
 }
 fieldset input {
   margin: 5px;
@@ -166,12 +200,17 @@ fieldset input {
 // Contact Page
 .container_contact {
   margin-top: 50px;
+  min-height: 70vh;
 }
 .btn {
   background-color: var(--brickred);
 }
 
 // Cart Page
+.container_cart {
+  min-height: 65vh;
+}
+
 .cart_img {
   width: 60px;
   height: 60px;

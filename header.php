@@ -44,13 +44,16 @@ $user_id = @$_SESSION["user_id"];
       </ul>
       <ul class="navbar-nav ml-auto">
         <?php if (@$_SESSION["user_name"]) { ?>
-          <?php if (@$sumProdInCart["SUM(product_quantity)"] > 0) { ?>
-            <li class="nav-item active">
-              <div class="nav-link">
-                <h4><a href="cart.php"><i class="fab fa-shopify"></i></a></h4>
-              </div>
-            </li>
-          <?php } ?>
+          <li class="nav-item active">
+            <div class="nav-link">
+              Your cart
+            </div>
+          </li>
+          <li class="nav-item active">
+            <div class="nav-link">
+              <h4><a href="cart.php"><i class="fab fa-shopify"></i></a></h4>
+            </div>
+          </li>
           <li class="nav-item active">
             <div class="nav-link">
               Bonjour <?= @$_SESSION["user_name"] ?> <?= @$_SESSION["user_firstname"] ?>

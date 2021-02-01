@@ -4,7 +4,7 @@
 //Variables
 $user_id = @$_SESSION["user_id"];
 $reclam_category_id = @$_POST["reclam_category_id"];
-$reclam_text = @$_POST["reclam_text"];
+$reclam_text = htmlspecialchars(@$_POST["reclam_text"]);
 
 // Add Products
 if (@$_POST["addreclam"]) {
@@ -46,7 +46,7 @@ $listReclamCategory = listReclamCategory();
                         <label for="exampleInputFile">Add Files</label>
                         <input type="file" class="form-control-file" name="file[]" aria-describedby="fileHelp" multiple />
                     </div>
-                    <input type="submit" name="addreclam" class="btn">
+                    <input type="submit" name="addreclam" class="btn"/>
                 </fieldset>
             </form>
         </div>
