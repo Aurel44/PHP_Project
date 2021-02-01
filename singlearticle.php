@@ -14,7 +14,8 @@ if (@$_POST["add"]) {
     } else {
         $product_quantity = $selectCartId["product_quantity"];
         $product_quantity++;
-        updateProdInCart($product_quantity, $product_id, $user_id);
+        $updateprod = updateProdInCart($product_quantity, $product_id, $user_id);
+        header('Location: singlearticle.php?id='.$_GET["id"].' ');
     }
 }
 
@@ -25,12 +26,13 @@ if (@$_POST["comment"]) {
 
 // Lists
 $descriProduct = prodById($product_id);
+$picsProduct = picsProdById($product_id);
 $listComments = listComment($product_id);
 
 
 ?>
 
-<div class="container">
+<div class="container container_product">
 
     <!-- Single Product -->
     <div class="row">
@@ -38,8 +40,16 @@ $listComments = listComment($product_id);
         <!-- Pic of Article and Buttons Add/Comment -->
         <div class="col-12 col-lg-6">
             <div class="img">
-                <img src="img/upload/<?= $descriProduct["pic_name"] ?>" alt="" class="img-fluid img_article">
+                <div>
+                    <img src="img/upload/<?= $descriProduct["pic_name"] ?>" id="image_princ" alt="" class="img-fluid img_article">
+                </div>
+                <?php foreach ($picsProduct as $row) { ?>
+                    <span class="img">
+                        <img src="img/upload/<?= $row["pic_name"] ?>" onclick="swapImg('img/upload/<?= $row['pic_name'] ?>')" height="80" width="80" alt="">
+                    </span>
+                <?php } ?>
             </div>
+            <br><br>
             <form action="" method="POST">
                 <div class="button_article">
                     <input type="submit" value="Add Product to Your Cart" name="add">
@@ -101,17 +111,18 @@ $listComments = listComment($product_id);
     <?php } ?>
     <br><br>
 
-    <!-- Last Comment Checkings -->
-    <div class="article_color">Last Comments:</div>
-    <?php foreach ($listComments as $row) { ?>
-        <div class="jumbotron comments">
-            <em><?= '"' . @$row["comment_text"] . '"' ?></em>
+    <!-- Last Comments Checkings -->
+    <?php if (count($listComments) > 0) { ?>
+        <div class="article_color">Last Comments:</div>
+        <?php foreach ($listComments as $row) { ?>
+            <div class="jumbotron comments">
+                <em><?= '"' . @$row["comment_text"] . '"' ?></em>
+                <br>
+                <div class="float-right article_color"><em><b>Written by <?= @$row["user_name"] ?></em></b></div>
+            </div>
             <br>
-            <div class="float-right article_color"><em><b>Written by <?= @$row["user_name"] ?></em></b></div>
-        </div>
-        <br>
+        <?php } ?>
     <?php } ?>
-    <br>
 </div>
 
 <?php include_once "footer.php" ?>

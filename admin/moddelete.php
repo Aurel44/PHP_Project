@@ -80,14 +80,14 @@ $prodById = prodById($product_id);
                         </div>
                         <div class="form-group">
                             <label for="price">Change the Price</label>
-                            <input type="text" class="form-control-file" name="product_price" id="product_price" placeholder="Your Price" value="<?= @$prodById["product_price"] ?>">
+                            <input type="text" class="form-control-file" name="product_price" id="product_price" placeholder="Your Price" value="<?= number_format(@$prodById["product_price"], 2, ',', ' ') ?>">
                         </div>
                         <div class="form-group">
                             <label for="stock">Change the quantity in your stock</label>
                             <input type="text" class="form-control-file" name="product_stock" id="product_stock" placeholder="Add the stock" value="<?= @$prodById["product_stock"] ?>">
                         </div>
                         <form action="" method="POST">
-                            <button type="submit" name="modify" value="modify" class="btn">Submit</button>
+                            <button type="submit" name="modify" value="modify" class="btn">Modify</button>
                             <br><br>
                     </fieldset>
                 </form>
@@ -125,7 +125,7 @@ $prodById = prodById($product_id);
                                 <?php } ?>
                             </select>
                         </div>
-                        <button type="submit" name="delete" value="delete" class="btn">Submit</button>
+                        <button type="submit" name="delete" value="delete" class="btn">Delete</button>
                         <br><br>
                     </fieldset>
                 </form>

@@ -23,6 +23,25 @@ function img_name($target_path, $product_id)
         )
     );
 }
+/**
+ * Upload files in DB
+ *
+ * @param [string] $target_path
+ * @param [int] $reclam_id
+ * @return void
+ */
+function file_name($target_path, $reclam_id)
+{
+    global $start;
+    $insert = "INSERT INTO files (file_name , reclam_id) VALUES (?,?)";
+    $request = $start->prepare($insert);
+    $request->execute(
+        array(
+            $target_path,
+            $$reclam_id
+        )
+    );
+}
 
 /**
  * List Category Shop Page
@@ -62,10 +81,34 @@ function prodById($product_id)
 {
     global $start;
     $select = "SELECT * FROM products 
-    NATURAL JOIN pics WHERE product_id = $product_id";
+    NATURAL JOIN pics WHERE product_id = ?";
     $request = $start->prepare($select);
-    $request->execute();
+    $request->execute(
+        array(
+            $product_id
+        )
+    );
     return $request->fetch();
+}
+
+/**
+ * All Pics of one Product
+ *
+ * @param [int] $product_id
+ * @return void
+ */
+function picsProdById($product_id)
+{
+    global $start;
+    $select = "SELECT pic_name FROM products 
+    NATURAL JOIN pics WHERE product_id = ?";
+    $request = $start->prepare($select);
+    $request->execute(
+        array(
+            $product_id
+        )
+    );
+    return $request->fetchAll();
 }
 
 /**
@@ -481,4 +524,62 @@ function total($listProdInCart, $total)
         $total += ($item["product_quantity"] * $item["product_price"]);
     }
     return $total;
+}
+/**
+ * Search Products in List
+ *
+ * @param [string] $search
+ * @return void
+ */
+function searchProducts($search)
+{
+    global $start;
+    $select = "SELECT * FROM products WHERE product_name LIKE '%" . $search . "%' ";
+    $request = $start->prepare($select);
+    $request->execute();
+    return $request->fetchAll();
+}
+
+/**
+ * List Of Reclams Categories
+ *
+ * @return void
+ */
+function listReclamCategory()
+{
+    global $start;
+    $select = "SELECT * FROM reclam_categories";
+    $request = $start->prepare($select);
+    $request->execute();
+    return $request->fetchAll();
+}
+
+
+/**
+ * Add reclams to DB
+ *
+ * @param [text] $reclam_text
+ * @param [int] $user_id
+ * @param [int] $reclam_category_id
+ * @return void
+ */
+function addReclams($reclam_text, $user_id, $reclam_category_id)
+{
+
+    global $start;
+    $insert = "INSERT INTO reclamations (reclam_text,user_id,reclam_category_id ) VALUES (?,?,?)";
+    $request = $start->prepare($insert);
+    $request->execute(
+        array(
+            $reclam_text,
+            $user_id,
+            $reclam_category_id
+        )
+    );
+
+    $reclam_id = $start->lastInsertId();
+
+    if (@$_FILES["file"]) {
+        uploadDoc($reclam_id);
+    }
 }
