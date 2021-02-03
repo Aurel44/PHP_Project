@@ -44,7 +44,7 @@ function upload($product_id)
 function uploadDoc($reclam_id)
 {
     $j = 0;
-    $target_path = "../files/upload/"; 
+    $target_path = "C:/wamp64/www/project1/file/upload/"; 
     for ($i = 0; $i < count($_FILES['file']['name']); $i++) { 
         $validextensions = array("pdf", "doc", "docx","xls");
         $ext = explode('.', basename($_FILES['file']['name'][$i]));
@@ -56,8 +56,6 @@ function uploadDoc($reclam_id)
         if (($_FILES['file']['size'][$i] < 2000000) //Approx 2MB files can be uploaded
             && in_array($file_extension, $validextensions)
         ) {
-        //     var_dump(move_uploaded_file(@$_FILES['file']['tmp_name'][$i], $target_path));
-        // die();
             if (move_uploaded_file(@$_FILES['file']['tmp_name'][$i], $target_path)) {
                 echo $j . ').<span id="noerror">Image uploaded successfully!.</span><br/><br/>';
                 file_name(basename($target_path), $reclam_id);

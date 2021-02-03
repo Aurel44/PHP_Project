@@ -38,7 +38,7 @@ function file_name($target_path, $reclam_id)
     $request->execute(
         array(
             $target_path,
-            $$reclam_id
+            $reclam_id
         )
     );
 }

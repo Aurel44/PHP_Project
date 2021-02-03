@@ -43,10 +43,10 @@ $listReclamCategory = listReclamCategory();
                         <textarea class="form-control" name="reclam_text" id="comment" rows="8" placeholder="Write here please."></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Add Files</label>
-                        <input type="file" class="form-control-file" name="file[]" aria-describedby="fileHelp" multiple />
+                        <label for="fileUpload">Add Files</label>
+                        <input type="file" class="form-control-file" id="fileUpload" name="file[]" multiple />
+                        <input type="submit" name="addreclam" value="Post your reclam" class="btn" />
                     </div>
-                    <input type="submit" name="addreclam" class="btn"/>
                 </fieldset>
             </form>
         </div>
