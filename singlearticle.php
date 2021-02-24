@@ -34,6 +34,7 @@ $picsProduct = picsProdById($product_id);
 $listComments = listComment($product_id);
 
 
+
 ?>
 
 <div class="container container_product">
@@ -45,11 +46,12 @@ $listComments = listComment($product_id);
         <div class="col-12 col-lg-6">
             <div class="img">
                 <div>
-                    <img src="img/upload/<?= $descriProduct["pic_name"] ?>" id="image_princ" alt="" class="img-fluid img_article">
+                    <img src="img/upload/<?= $descriProduct["pic_name"] ?>" id="image_princ" alt="<?= $descriProduct["product_description"] ?>" class="img-fluid img_article">
                 </div>
                 <?php foreach ($picsProduct as $row) { ?>
                     <span class="img">
-                        <img src="img/upload/<?= $row["pic_name"] ?>" onclick="swapImg('img/upload/<?= $row['pic_name'] ?>')" height="80" width="80" alt="">
+                        <img src="img/upload/<?= $row["pic_name"] ?>" onclick="swapImg('img/upload/<?= $row['pic_name'] ?>')" 
+                        height="80" width="80" alt="<?= $descriProduct["product_description"] ?>">
                     </span>
                 <?php } ?>
             </div>

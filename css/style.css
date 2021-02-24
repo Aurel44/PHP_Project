@@ -1,5 +1,5 @@
 :root {
-  --brickred: #357569;
+  --aquagreen: #357569;
   /*pour fixer la couleur et le reutiliser plus tard*/
 }
 
@@ -21,7 +21,7 @@ a {
 }
 
 .navbar {
-  background-color: var(--brickred) !important;
+  background-color: var(--aquagreen) !important;
 }
 
 .name_display {
@@ -30,7 +30,7 @@ a {
 
 .item_display {
   height: 60px;
-  background-color: var(--brickred) !important;
+  background-color: var(--aquagreen) !important;
   opacity: 0.8;
 }
 
@@ -41,7 +41,7 @@ a {
 
 .footer_container {
   height: 50 px;
-  background-color: var(--brickred);
+  background-color: var(--aquagreen);
   position: relative;
   bottom: 0;
   width: 100%;
@@ -61,7 +61,7 @@ a {
 
 .carousel_text {
   font-weight: bolder;
-  color: var(--brickred);
+  color: var(--aquagreen);
 }
 
 .p_justify {
@@ -173,7 +173,7 @@ ul {
   margin-top: 30px;
   text-align: center;
   font: 18px "Lucida Sans Unicode", "Trebuchet MS", Arial, Helvetica;
-  background-image: -webkit-linear-gradient(top, #fff, var(--brickred));
+  background-image: -webkit-linear-gradient(top, #fff, var(--aquagreen));
   height: auto;
   width: 400px;
   padding: 30px;
@@ -186,7 +186,7 @@ ul {
   margin-top: 70px;
   text-align: center;
   font: 18px "Lucida Sans Unicode", "Trebuchet MS", Arial, Helvetica;
-  background-image: -webkit-linear-gradient(top, #fff, var(--brickred));
+  background-image: -webkit-linear-gradient(top, #fff, var(--aquagreen));
   height: auto;
   width: 400px;
   padding: 30px;
@@ -195,7 +195,7 @@ ul {
 }
 
 .container_logsign {
-  height: 500px;
+  height: 600px;
 }
 
 fieldset input {
@@ -209,7 +209,7 @@ fieldset input {
 }
 
 .btn {
-  background-color: var(--brickred);
+  background-color: var(--aquagreen);
 }
 
 .container_cart {
@@ -221,8 +221,12 @@ fieldset input {
   height: 60px;
 }
 
+.cart_img:hover {
+  cursor: not-allowed;
+}
+
 .shopping-cart {
-  width: 1000px;
+  width: 900px;
   margin: 20px auto;
   background-color: rgba(119, 170, 90, 0.5);
   box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
@@ -266,14 +270,8 @@ fieldset input {
 
 .delete-btn i {
   display: inline-block;
-  cursor: pointer;
+  cursor: progress;
   background-color: rgba(119, 170, 90, 0.5);
-}
-
-.delete-btn {
-  width: 18px;
-  height: 17px;
-  background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
 }
 
 .is-active {
@@ -303,7 +301,7 @@ fieldset input {
 .description {
   padding-top: 10px;
   margin-right: 60px;
-  width: 400px;
+  width: 225px;
 }
 
 .description span {
@@ -339,13 +337,12 @@ fieldset input {
 }
 
 button[class*="btn"] {
-  width: 100px;
+  width: 30px;
   height: 30px;
   background-color: rgba(119, 170, 90, 0.5);
   border-radius: 6px;
   vertical-align: center;
   border: none;
-  cursor: pointer;
 }
 
 button[class*="btn1"] {
@@ -380,7 +377,7 @@ input:focus {
   vertical-align: middle;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .shopping-cart {
     width: 100%;
     height: auto;
@@ -407,7 +404,7 @@ input:focus {
 }
 
 .total {
-  width: 17%;
+  width: 30%;
   text-align: center;
 }
 
@@ -417,6 +414,6 @@ input:focus {
 }
 
 .shopping_cart {
-  width: 68%;
+  width: 55%;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,9 +1,10 @@
 <?php include_once "header.php" ?>
 
+
 <?php
 
 // Function Calls
-if (@$_POST["signin"]) {
+if (@$_POST["signin"] && (@$_POST['checkbox'] == true)) {
 
     @$name = htmlspecialchars(@$_POST["name"]);
     @$firstname = htmlspecialchars(@$_POST["firstname"]);
@@ -11,8 +12,12 @@ if (@$_POST["signin"]) {
     @$address = htmlspecialchars(@$_POST["address"]);
     @$mail = htmlspecialchars(@$_POST["mail"]);
 
-    $recup = addlogin($name, $firstname, $password, $address, $mail);
+    addlogin($name, $firstname, $password, $address, $mail);
+    echo "<script>divConfirm('ok');</script>";
+} else {
+    echo "<script>divConfirm('noncgu');</script>";
 }
+
 if (@$_POST["login"]) {
     @$logmail = htmlspecialchars(@$_POST["log_mail"]);
     @$logpass = htmlspecialchars(@$_POST["log_password"]);
@@ -35,14 +40,30 @@ if (@$_POST["login"]) {
                     <br>
                     <input id="firstname" type="text" name="firstname" autocomplete="firstname" placeholder="Your Firstname" autofocus="" required>
                     <br>
-                    <input id="password" type="password" name="password" autocomplete="current-password" placeholder="Password" required>
+                    <input id="password" type="password" name="password" autocomplete="password" placeholder="Password" required>
                     <br>
                     <input id="address" type="text" name="address" autocomplete="address" placeholder="Your Address" required>
                     <br>
                     <input id="email" type="email" name="mail" autocomplete="email" placeholder="Your Email" required>
                 </fieldset>
                 <fieldset id="actions">
-                    <input type="submit" id="signin" name="signin" value="Sign In">
+                    <div>
+                        <input type="checkbox" value="false" id="check" name="checkbox" aria-checked="false">
+                        <label for="checkbox">
+                            <p>Vous affirmez avoir pris connaissance <br>de notre
+                                <a href="admin/cgu.php">Politique de confidentialité</a>
+                            </p>
+                        </label>
+                    </div>
+                    <div id="ok" style="display:none;">
+                        Vous êtes bien inscrit sur notre site.
+                    </div>
+                    <div id="noncgu" style="display:none;">
+                        Vous n'avez pas validé les CGUs.
+                    </div>
+                    <div>
+                        <input type="submit" id="signin" name="signin" value="Sign In">
+                        </span>
                 </fieldset>
             </form>
         </div>
@@ -64,37 +85,6 @@ if (@$_POST["login"]) {
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

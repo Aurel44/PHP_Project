@@ -119,6 +119,7 @@ $listArtByIdCat = artbyId($category_id);
             </div>
         </div>
     </div>
+    
 </div>
 
 

@@ -202,19 +202,10 @@ function loginVis($logmail, $logpass)
  */
 function addProduct($product_name, $product_description, $product_price, $product_stock, $category_id)
 {
-
     global $start;
     $insert = "INSERT INTO products (product_name, product_description, product_price, product_stock, category_id ) VALUES (?,?,?,?,?)";
     $request = $start->prepare($insert);
-    $request->execute(
-        array(
-            $product_name,
-            $product_description,
-            $product_price,
-            $product_stock,
-            $category_id
-        )
-    );
+    $request->execute(array($product_name,$product_description,$product_price,$product_stock,$category_id));
 }
 /**
  * Update a Product

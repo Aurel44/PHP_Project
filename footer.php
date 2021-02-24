@@ -1,3 +1,4 @@
+<!-- Footer -->
 <div class="container-fluid footer_container">
     <div class="footer-top">
         <div class="container">
@@ -10,7 +11,7 @@
                 </div>
                 <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact wow fadeInDown animated" style="visibility: visible; animation-name: fadeInDown;">
                     <h3>Contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i>  37 rue du Bois Briand 44300 NANTES</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 37 rue du Bois Briand 44300 NANTES</p>
                     <p><i class="fas fa-phone"></i> Phone: 02 40 18 36 36</p>
                     <p><i class="fas fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
                 </div>
@@ -31,7 +32,12 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/project1/js/main.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Bandeau RGPD -->
+<script type="text/javascript" id="cookieinfo" src="//cookieinfoscript.com/js/cookieinfo.min.js" data-bg="#645862" data-fg="#FFFFFF" data-link="#F1D600" data-cookie="CookieInfoScript" data-text-align="left" data-close-text="Got it!">
+</script>
+
 </body>
 
 </html>

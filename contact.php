@@ -11,10 +11,23 @@ if (@$_POST["addreclam"]) {
     // var_dump($reclam_text,$user_id,$reclam_category_id);
     // die();
     addReclams($reclam_text, $user_id, $reclam_category_id);
-    unset($_POST);
+    $name = $_SESSION["user_firstname"] . " " . $_SESSION["user_name"];
+    $to      = $_SESSION["user_email"];
+    $subject = 'the subject';
+    $message = $_POST["reclam_text"];
+    $headers = array(
+        'From' => 'webmaster@example.com',
+        'Reply-To' => 'webmaster@example.com',
+        'X-Mailer' => 'PHP/' . phpversion()
+    );
+
+    mail($to, $subject, $message, $headers);
 }
 
 $listReclamCategory = listReclamCategory();
+
+
+
 ?>
 
 <div class="container container_contact">

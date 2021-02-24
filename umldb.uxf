@@ -1,0 +1,112 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>662</x><y>18</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Cart Table
+
+--
+
+- cart_id : int
+- product_id : int
+- product_quantity : int
+- user_id : int
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>662</x><y>258</y><w>210</w><h>200</h></coordinates><panel_attributes>
+Users Table
+
+--
+- user_id : int
+- user_name : varchar
+- user_firstname : varchar
+- user_password : varchar
+- user_address : text
+- user_email : varchar
+- user_role : int (Default : 1)
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>962</x><y>18</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Files Table
+
+--
+
+
+- file_id : int
+- file_name : varchar
+- reclam_id : int
+
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>962</x><y>258</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Reclams Table
+
+--
+
+- reclam_id : int
+- reclam_text : text
+- user_id : int
+- reclam_category_id : int
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>662</x><y>518</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Comments Table
+
+--
+- comment_id : int
+- active : int ( Default : 0)
+- comment_text :  varchar
+- user_password : varchar
+- user_id : int
+- product_id : int
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>292</x><y>308</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Products Table
+
+--
+- product_id : int
+- product_name : varchar
+- product_description : text
+- product_price : float
+- product_stock : int
+- category_id : int
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>292</x><y>568</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Products Categories Table
+
+--
+
+
+- category_id : int
+- category_name : varchar
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>292</x><y>48</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Blog Article Table
+
+
+--
+- article_id: int
+- article_text : text
+- article_author : varchar
+- article_date : datetime
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>382</x><y>488</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>88</y><w>190</w><h>280</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;260;80;260;80;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>198</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>398</y><w>190</w><h>240</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;10;80;10;80;220;170;220</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>448</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>662</x><y>728</y><w>210</w><h>190</h></coordinates><panel_attributes>
+Pics Table
+
+--
+
+
+- pic_id : int
+- pic_name : varchar
+- product_id : int
+
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>448</y><w>190</w><h>410</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;10;60;10;60;390;170;390</additional_attributes></element><element><id>UMLClass</id><coordinates><x>952</x><y>508</y><w>230</w><h>190</h></coordinates><panel_attributes>
+Reclams Categories Table
+
+--
+
+
+- reclam_category_id : int
+- reclam_category_name : varchar
+
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>862</x><y>348</y><w>120</w><h>40</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1052</x><y>438</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1052</x><y>198</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>130</y><w>190</w><h>270</h></coordinates><panel_attributes>lt=-&lt;
+</panel_attributes><additional_attributes>170;10;110;10;110;250;10;250</additional_attributes></element></diagram>
