@@ -6,13 +6,13 @@
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="/project1/img/bannierejournaux2.jpg" class="d-block w-100" alt="site">
+            <img src="img/bannierejournaux2.jpg" class="d-block w-100" alt="site">
         </div>
         <div class="carousel-item">
-            <img src="/project1/img/bannierejournaux1.jpg" class="d-block w-100" alt="shop">
+            <img src="img/bannierejournaux1.jpg" class="d-block w-100" alt="shop">
         </div>
         <div class="carousel-item">
-            <img src="/project1/img/banniere-contact.jpg" class="d-block w-100" alt="contact">
+            <img src="img/banniere-contact.jpg" class="d-block w-100" alt="contact">
         </div>
     </div>
 </div>

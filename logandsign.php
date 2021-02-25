@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include_once "header.php" ?>
 
 
@@ -21,9 +22,9 @@ if (@$_POST["signin"] && (@$_POST['checkbox'] == true)) {
 if (@$_POST["login"]) {
     @$logmail = htmlspecialchars(@$_POST["log_mail"]);
     @$logpass = htmlspecialchars(@$_POST["log_password"]);
-    $recup = loginVis($logmail, $logpass);
+    loginVis($logmail, $logpass);
 }
-
+ob_end_flush();
 ?>
 
 

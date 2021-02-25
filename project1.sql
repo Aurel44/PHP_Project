@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 02 fév. 2021 à 15:42
+-- Généré le : jeu. 25 fév. 2021 à 09:14
 -- Version du serveur :  5.7.31
--- Version de PHP : 7.3.21
+-- Version de PHP : 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `blog_article`
+--
+
+DROP TABLE IF EXISTS `blog_article`;
+CREATE TABLE IF NOT EXISTS `blog_article` (
+  `article_id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_text` text NOT NULL,
+  `article_author` varchar(100) NOT NULL,
+  `article_date` datetime NOT NULL,
+  PRIMARY KEY (`article_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `cart`
 --
 
@@ -34,14 +49,15 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `product_quantity` int(4) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`cart_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `cart`
 --
 
 INSERT INTO `cart` (`cart_id`, `product_id`, `product_quantity`, `user_id`) VALUES
-(46, 1, 1, 1);
+(52, 3, 3, 1),
+(51, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -128,14 +144,6 @@ CREATE TABLE IF NOT EXISTS `files` (
   `reclam_id` int(11) NOT NULL,
   PRIMARY KEY (`file_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `files`
---
-
-INSERT INTO `files` (`file_id`, `file_name`, `reclam_id`) VALUES
-(1, '6018227e0a3a3.pdf', 59),
-(2, '60182287ed936.doc', 60);
 
 -- --------------------------------------------------------
 
@@ -299,24 +307,6 @@ CREATE TABLE IF NOT EXISTS `reclamations` (
   PRIMARY KEY (`reclam_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=61 DEFAULT CHARSET=latin1;
 
---
--- Déchargement des données de la table `reclamations`
---
-
-INSERT INTO `reclamations` (`reclam_id`, `reclam_text`, `user_id`, `reclam_category_id`) VALUES
-(60, 'fezrtyujtiyo', 1, 5),
-(59, 'frdegtsz', 1, 5),
-(58, 'frdegtsz', 1, 5),
-(57, 'frdegtsz', 1, 5),
-(56, 'frdegtsz', 1, 5),
-(55, 'frdegtsz', 1, 5),
-(54, 'frdegtsz', 1, 5),
-(53, 'frdegtsz', 1, 5),
-(52, 'frdegtsz', 1, 5),
-(51, 'fretre', 2, 5),
-(50, 'fretre', 2, 5),
-(49, 'fretre', 2, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -357,7 +347,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_email` varchar(100) NOT NULL,
   `user_role` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
@@ -365,7 +355,17 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_firstname`, `user_password`, `user_address`, `user_email`, `user_role`) VALUES
 (1, 'Eon', 'Patrice', 'patrice', '25rue de l ecole', 'patrice@gmail.com', 1),
-(2, 'aurelien', 'chetanneau', 'password', '142 bbgrbr', 'aurelien@yahoo.fr', 5);
+(3, 'aurelien', 'chetanneau', 'aurelien', 'zdefegfh', 'aurelien@hotmail.fr', 1),
+(2, 'aurelien', 'chetanneau', 'password', '142 bbgrbr', 'aurelien@yahoo.fr', 5),
+(47, 'aurelien', 'chetanneau', 'dsmsfkbg', 'szdsfgbhnj', 'aurelien@hotmail.Fr', 1),
+(46, 'aurelien', 'chetanneau', 'dsmsfkbg', 'szdsfgbhnj', 'aurelien@hotmail.Fr', 1),
+(45, 'aurelien', 'chetanneau', 'dsmsfkbg', 'szdsfgbhnj', 'aurelien@hotmail.Fr', 1),
+(44, 'aurelien', 'chetanneau', 'dsmsfkbg', 'szdsfgbhnj', 'aurelien@hotmail.Fr', 1),
+(43, 'aurelien', 'chetanneau', 'aurelien', 'sdfghg', 'aurelien@hotmail.Fr', 1),
+(42, 'aurelien', 'chetanneau', 'aurelien', 'zsdefrgtyhujikolpm', 'aurelien@hotmail.Fr', 1),
+(41, 'aurelien', 'chetanneau', 'aurelien', 'zsdefrgtyhujikolpm', 'aurelien@hotmail.Fr', 1),
+(40, 'aurelien', 'chetanneau', 'aurelien', 'zdefgf', 'aurelien@hotmail.Fr', 1),
+(39, 'aurelien', 'chetanneau', 'aurelien', 'fretyth', 'aurelien@hotmail.Fr', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
