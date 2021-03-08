@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include_once "header.php" ?>
 
 <?php
@@ -34,7 +35,7 @@ $picsProduct = picsProdById($product_id);
 $listComments = listComment($product_id);
 
 
-
+ob_end_flush();
 ?>
 
 <div class="container container_product">

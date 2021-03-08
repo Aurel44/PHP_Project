@@ -18,8 +18,11 @@ $user_id = @$_SESSION["user_id"];
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <meta name="description" content="La presse de la région Ligérienne à portée de main, nos actualités, nos produits en évidence. Un accès sécurisé pour chacun de nos clients. Et bien évidemment facile d'accès!!!!">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Project_1</title>
 </head>
@@ -36,11 +39,13 @@ $user_id = @$_SESSION["user_id"];
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="shop.php"><i class="fas fa-store"></i> Shop<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="shop.php"><i class="fas fa-store"></i> Shop</a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="contact.php"><i class="fas fa-id-card"></i> Contact</a>
-        </li>
+        <?php if (@$_SESSION["user_name"]) { ?>
+          <li class="nav-item active">
+            <a class="nav-link" href="contact.php"><i class="fas fa-id-card"></i> Contact</a>
+          </li>
+        <?php } ?>
       </ul>
       <ul class="navbar-nav ml-auto">
         <?php if (@$_SESSION["user_name"]) { ?>
@@ -89,6 +94,9 @@ $user_id = @$_SESSION["user_id"];
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="admin/moderate.php"><i class="fas fa-check-circle"></i> Check Comments</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="admin/addBlogArticle.php"><i class="fas fa-check-circle"></i> Add Blog Artcicle</a>
             </li>
           </ul>
         </div>

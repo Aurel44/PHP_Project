@@ -6,4 +6,3 @@ function swapImg(elt) {
   document.getElementById("image_princ").src = elt;
 }
 
-

@@ -1,112 +1,348 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>662</x><y>18</y><w>210</w><h>190</h></coordinates><panel_attributes>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>40</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Cart Table
 
 --
 
-- cart_id : int
-- product_id : int
-- product_quantity : int
-- user_id : int
+- cart_id : int                          PK
+- product_id : int                    FK
+- user_id : int                         FK
 
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>662</x><y>258</y><w>210</w><h>200</h></coordinates><panel_attributes>
+--
+- product_quantity : int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>260</y>
+      <w>210</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>
 Users Table
 
 --
-- user_id : int
+- user_id : int                         PK
+--
 - user_name : varchar
 - user_firstname : varchar
 - user_password : varchar
 - user_address : text
 - user_email : varchar
 - user_role : int (Default : 1)
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>962</x><y>18</y><w>210</w><h>190</h></coordinates><panel_attributes>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>40</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Files Table
 
 --
 
+- file_id : int                           PK
+- reclam_id : int                     FK
 
-- file_id : int
+--
+
 - file_name : varchar
-- reclam_id : int
 
-
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>962</x><y>258</y><w>210</w><h>190</h></coordinates><panel_attributes>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>260</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Reclams Table
 
 --
 
-- reclam_id : int
-- reclam_text : text
-- user_id : int
-- reclam_category_id : int
+- reclam_id : int                     PK
+- reclam_category_id : int     FK
+- user_id : int                         FK
 
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>662</x><y>518</y><w>210</w><h>190</h></coordinates><panel_attributes>
+--
+
+- reclam_text : text
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>500</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Comments Table
 
 --
-- comment_id : int
+- comment_id : int                 PK
+- user_id : int                         FK
+- product_id : int                    FK
+--
 - active : int ( Default : 0)
 - comment_text :  varchar
 - user_password : varchar
-- user_id : int
-- product_id : int
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>292</x><y>308</y><w>210</w><h>190</h></coordinates><panel_attributes>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>330</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Products Table
 
 --
-- product_id : int
+- product_id : int                     PK
+- category_id : int                   FK
+--
 - product_name : varchar
 - product_description : text
 - product_price : float
 - product_stock : int
-- category_id : int
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>292</x><y>568</y><w>210</w><h>190</h></coordinates><panel_attributes>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>590</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Products Categories Table
 
 --
 
+- category_id : int                   PK
 
-- category_id : int
+--
+
 - category_name : varchar
 
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>292</x><y>48</y><w>210</w><h>190</h></coordinates><panel_attributes>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>220</x>
+      <y>70</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Blog Article Table
 
 
 --
-- article_id: int
+- article_id: int                       PK
+--
 - article_text : text
 - article_author : varchar
 - article_date : datetime
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>382</x><y>488</y><w>30</w><h>100</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>88</y><w>190</w><h>280</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;260;80;260;80;10;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>198</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>398</y><w>190</w><h>240</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;10;80;10;80;220;170;220</additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>448</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>662</x><y>728</y><w>210</w><h>190</h></coordinates><panel_attributes>
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>310</x>
+      <y>510</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>110</y>
+      <w>190</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;260.0;80.0;260.0;80.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>220</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>420</y>
+      <w>190</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0;80.0;180.0;170.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>690</x>
+      <y>450</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>710</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Pics Table
 
 --
 
+- pic_id : int                           PK
+- product_id : int                    FK
 
-- pic_id : int
+--
+
 - pic_name : varchar
-- product_id : int
 
-
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>448</y><w>190</w><h>410</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;10;60;10;60;390;170;390</additional_attributes></element><element><id>UMLClass</id><coordinates><x>952</x><y>508</y><w>230</w><h>190</h></coordinates><panel_attributes>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>470</y>
+      <w>190</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;350.0;170.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>880</x>
+      <y>500</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>
 Reclams Categories Table
 
 --
 
+- reclam_category_id : int           PK
 
-- reclam_category_id : int
+--
+
 - reclam_category_name : varchar
 
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>862</x><y>348</y><w>120</w><h>40</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1052</x><y>438</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1052</x><y>198</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>492</x><y>130</y><w>190</w><h>270</h></coordinates><panel_attributes>lt=-&lt;
-</panel_attributes><additional_attributes>170;10;110;10;110;250;10;250</additional_attributes></element></diagram>
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>790</x>
+      <y>350</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>440</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>220</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>150</y>
+      <w>190</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=-&lt;
+</panel_attributes>
+    <additional_attributes>170.0;10.0;110.0;10.0;110.0;250.0;10.0;250.0</additional_attributes>
+  </element>
+</diagram>

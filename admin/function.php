@@ -154,6 +154,9 @@ function addlogin($name, $firstname, $password, $address, $mail)
             $mail
         )
     );
+   if($request!==false){
+       return true;
+   }
 }
 /**
  * Log In 
@@ -165,30 +168,37 @@ function addlogin($name, $firstname, $password, $address, $mail)
 function loginVis($logmail, $logpass)
 {
     global $start;
-    $select = "SELECT * FROM users WHERE user_email= ? AND user_password = ? ";
+    $select = "SELECT * FROM users WHERE user_email= ? LIMIT 1";
     $request = $start->prepare($select);
-    $request->execute(array($logmail, $logpass));
+    $request->execute(
+        array(
+            $logmail
+        )
+    );
     $row = $request->fetch();
+    if ($row == false) {
+       return false;
+    } elseif (password_verify($logpass, $row['user_password'])) {
+        if ($row) {
+            $_SESSION["user_id"] = $row["user_id"];
+            $_SESSION["user_name"] = $row["user_name"];
+            $_SESSION["user_firstname"] = $row["user_firstname"];
+            $_SESSION["user_address"] = $row["user_address"];
+            $_SESSION["user_email"] = $row["user_email"];
+            $_SESSION["user_role"] = $row["user_role"];
 
+            if ($_SESSION["user_role"] == 5) {
+                header('Location: index.php'); // Admin
+            }
+            if ($_SESSION["user_role"] == 1) {
 
-    if ($row) {
-
-        $_SESSION["user_id"] = $row["user_id"];
-        $_SESSION["user_name"] = $row["user_name"];
-        $_SESSION["user_firstname"] = $row["user_firstname"];
-        $_SESSION["user_address"] = $row["user_address"];
-        $_SESSION["user_email"] = $row["user_email"];
-        $_SESSION["user_role"] = $row["user_role"];
-
-        if ($_SESSION["user_role"] == 5) {
-            header('Location: index.php'); // Admin
-        }
-        if ($_SESSION["user_role"] == 1) {
-
-            header('Location: index.php'); // Site Client
+                header('Location: index.php'); // Site Client
+            }
+        } else {
+            session_destroy();
         }
     } else {
-        session_destroy();
+        return "incorrect";
     }
 }
 /**
@@ -205,7 +215,7 @@ function addProduct($product_name, $product_description, $product_price, $produc
     global $start;
     $insert = "INSERT INTO products (product_name, product_description, product_price, product_stock, category_id ) VALUES (?,?,?,?,?)";
     $request = $start->prepare($insert);
-    $request->execute(array($product_name,$product_description,$product_price,$product_stock,$category_id));
+    $request->execute(array($product_name, $product_description, $product_price, $product_stock, $category_id));
 }
 /**
  * Update a Product
@@ -573,4 +583,70 @@ function addReclams($reclam_text, $user_id, $reclam_category_id)
     if (@$_FILES["file"]) {
         uploadDoc($reclam_id);
     }
+}
+
+/**
+ * Add articles in DataBase
+ *
+ * @param [varchar] $product_name
+ * @param [text] $product_description
+ * @param [float] $product_price
+ * @param [int] $product_stock
+ * 
+ */
+function addBlogArticle($article_text, $article_author, $article_category_id)
+{
+    global $start;
+    $insert = "INSERT INTO blog_article (article_text, article_author, article_date, article_category_id ) VALUES (?,?,NOW(),?)";
+    $request = $start->prepare($insert);
+    $request->execute(array($article_text, $article_author, $article_category_id));
+}
+
+/**
+ * List Category Shop Page
+ *
+ * @return array
+ */
+function listArticleCat()
+{
+    global $start;
+    $select = "SELECT * FROM article_category";
+    $request = $start->prepare($select);
+    $request->execute();
+    return $request->fetchAll();
+}
+
+/**
+ * List of Products by Category
+ *
+ * @param [int] $category_id
+ * @return array
+ */
+function articlebyId($article_category_id)
+{
+    global $start;
+    $select = "SELECT * FROM blog_article 
+    NATURAL JOIN article_category
+    WHERE article_category_id = ?";
+    $request = $start->prepare($select);
+    $request->execute(
+        array(
+            $article_category_id
+        )
+    );
+    return $request->fetchAll();
+}
+
+/**
+ * List Category Shop Page
+ *
+ * @return array
+ */
+function listArticle()
+{
+    global $start;
+    $select = "SELECT * FROM blog_article NATURAL JOIN article_category";
+    $request = $start->prepare($select);
+    $request->execute();
+    return $request->fetchAll();
 }

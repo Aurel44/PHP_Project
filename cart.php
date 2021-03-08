@@ -102,9 +102,12 @@ $url_confirmation = 'http://localhost/project1/admin/paypal-confirmation.php?id=
       <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank"> -->
       <form action="https://sandbox.paypal.com" method="POST" target="_blank">
         <input type="hidden" name="cmd" value="_xclick" />
+        <INPUT type="hidden" name="charset" value="utf-8">
         <input type="hidden" name="business" value="<?php echo $email_paypal ?>" />
         <input type="hidden" name="item_name" value="<?php echo $item_nom ?>" />
-        <input type="hidden" name="item_number" value="<?php echo $user_id ?>" />
+        <input type="hidden" name="item_number" value="Ca marche!!!" />
+        <input type="hidden" name="address1" value="<?php echo @$_SESSION["user_address"] ?>" />
+        <input type="hidden" name="email" value="<?php echo @$_SESSION["user_email"] ?>" />
         <input type="hidden" name="amount" value="<?php echo $total ?>" />
         <input type="hidden" name="currency_code" value="EUR" />
         <input type="hidden" name="no_note" value="1" />
