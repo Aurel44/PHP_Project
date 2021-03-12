@@ -1,8 +1,4 @@
-:root {
-  --aquagreen: #357569;
-  /*pour fixer la couleur et le reutiliser plus tard*/
-}
-
+/*pour fixer la couleur et le reutiliser plus tard*/
 * {
   box-sizing: border-box;
 }
@@ -21,7 +17,7 @@ a {
 }
 
 .navbar {
-  background-color: var(--aquagreen) !important;
+  background-color: #357569 !important;
 }
 
 .name_display {
@@ -30,7 +26,7 @@ a {
 
 .item_display {
   height: 60px;
-  background-color: var(--aquagreen) !important;
+  background-color: #357569 !important;
   opacity: 0.8;
 }
 
@@ -41,7 +37,7 @@ a {
 
 .footer_container {
   height: 50 px;
-  background-color: var(--aquagreen);
+  background-color: #357569;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -61,7 +57,7 @@ a {
 
 .carousel_text {
   font-weight: bolder;
-  color: var(--aquagreen);
+  color: #357569;
 }
 
 .index_title {
@@ -361,7 +357,7 @@ a {
   margin-bottom: 30px;
   text-align: center;
   font: 18px "Lucida Sans Unicode", "Trebuchet MS", Arial, Helvetica;
-  background-image: -webkit-linear-gradient(top, #fff, var(--aquagreen));
+  background-image: -webkit-linear-gradient(top, #fff, #357569);
   height: 550px;
   width: 400px;
   padding: 30px;
@@ -375,7 +371,7 @@ a {
   margin-bottom: 10px;
   text-align: center;
   font: 18px "Lucida Sans Unicode", "Trebuchet MS", Arial, Helvetica;
-  background-image: -webkit-linear-gradient(top, #fff, var(--aquagreen));
+  background-image: -webkit-linear-gradient(top, #fff, #357569);
   height: 550px;
   width: 400px;
   padding: 30px;
@@ -394,7 +390,7 @@ fieldset input {
 }
 
 .btn {
-  background-color: var(--aquagreen);
+  background-color: #357569;
 }
 
 .container_cart {

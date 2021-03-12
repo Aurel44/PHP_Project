@@ -1,9 +1,6 @@
 // Variables
+$aquagreen: #357569; /*pour fixer la couleur et le reutiliser plus tard*/
 
-:root {
-  --aquagreen: #357569;
-  /*pour fixer la couleur et le reutiliser plus tard*/
-}
 
 // Header page
 * {
@@ -23,7 +20,7 @@ a {
 }
 
 .navbar {
-  background-color: var(--aquagreen) !important;
+  background-color: $aquagreen !important;
 }
 
 .name_display {
@@ -31,7 +28,7 @@ a {
 }
 .item_display {
   height: 60px;
-  background-color: var(--aquagreen) !important;
+  background-color: $aquagreen !important;
   opacity: 0.8;
 }
 .fas,
@@ -42,7 +39,7 @@ a {
 // Footer Page
 .footer_container {
   height: 50 px;
-  background-color: var(--aquagreen);
+  background-color: $aquagreen;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -62,7 +59,7 @@ a {
 }
 .carousel_text {
   font-weight: bolder;
-  color: var(--aquagreen);
+  color: $aquagreen;
 }
 .index_title {
   text-align: center;
@@ -370,7 +367,7 @@ a {
   margin-bottom: 30px;
   text-align: center;
   font: 18px "Lucida Sans Unicode", "Trebuchet MS", Arial, Helvetica;
-  background-image: -webkit-linear-gradient(top, #fff, var(--aquagreen));
+  background-image: -webkit-linear-gradient(top, #fff, $aquagreen);
   height: 550px;
   width: 400px;
   padding: 30px;
@@ -385,7 +382,7 @@ a {
   margin-bottom: 10px;
   text-align: center;
   font: 18px "Lucida Sans Unicode", "Trebuchet MS", Arial, Helvetica;
-  background-image: -webkit-linear-gradient(top, #fff, var(--aquagreen));
+  background-image: -webkit-linear-gradient(top, #fff, $aquagreen);
   height: 550px;
   width: 400px;
   padding: 30px;
@@ -408,7 +405,7 @@ fieldset input {
   min-height: 70vh;
 }
 .btn {
-  background-color: var(--aquagreen);
+  background-color: $aquagreen;
 }
 
 // Cart Page

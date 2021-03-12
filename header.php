@@ -18,13 +18,12 @@ $user_id = @$_SESSION["user_id"];
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="La presse de la région Ligérienne à portée de main, nos actualités, nos produits en évidence. Un accès sécurisé pour chacun de nos clients. Et bien évidemment facile d'accès!!!!">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <meta name="description" content="La presse de la région Ligérienne et Angevine à portée de main avec nos actualités, nos produits. Un accès sécurisé pour chacun de nos clients.">
+  <link rel="canonical">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <title>Project_1</title>
+  <title>La Presse Ligérienne et Angevine à côté de vous .</title>
 </head>
 
 <body>
@@ -96,7 +95,7 @@ $user_id = @$_SESSION["user_id"];
               <a class="nav-link" href="admin/moderate.php"><i class="fas fa-check-circle"></i> Check Comments</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="admin/addBlogArticle.php"><i class="fas fa-check-circle"></i> Add Blog Artcicle</a>
+              <a class="nav-link" href="admin/addBlogArticle.php"><i class="fas fa-check-circle"></i> Add Blog Article</a>
             </li>
           </ul>
         </div>

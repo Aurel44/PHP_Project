@@ -126,8 +126,6 @@ function listCommentByCat($category_id)
     NATURAL JOIN categories WHERE categories.category_id = $category_id AND active= 0";
     $request = $start->prepare($select);
     $request->execute();
-    // var_dump($request->fetchAll());
-    // die();
     return $request->fetchAll();
 }
 /**
@@ -154,9 +152,9 @@ function addlogin($name, $firstname, $password, $address, $mail)
             $mail
         )
     );
-   if($request!==false){
-       return true;
-   }
+    if ($request !== false) {
+        return true;
+    }
 }
 /**
  * Log In 
@@ -170,32 +168,26 @@ function loginVis($logmail, $logpass)
     global $start;
     $select = "SELECT * FROM users WHERE user_email= ? LIMIT 1";
     $request = $start->prepare($select);
-    $request->execute(
-        array(
-            $logmail
-        )
-    );
+    $request->execute(array($logmail));
     $row = $request->fetch();
+
+
     if ($row == false) {
-       return false;
+        return false;
     } elseif (password_verify($logpass, $row['user_password'])) {
-        if ($row) {
-            $_SESSION["user_id"] = $row["user_id"];
-            $_SESSION["user_name"] = $row["user_name"];
-            $_SESSION["user_firstname"] = $row["user_firstname"];
-            $_SESSION["user_address"] = $row["user_address"];
-            $_SESSION["user_email"] = $row["user_email"];
-            $_SESSION["user_role"] = $row["user_role"];
 
-            if ($_SESSION["user_role"] == 5) {
-                header('Location: index.php'); // Admin
-            }
-            if ($_SESSION["user_role"] == 1) {
+        $_SESSION["user_id"] = $row["user_id"];
+        $_SESSION["user_name"] = $row["user_name"];
+        $_SESSION["user_firstname"] = $row["user_firstname"];
+        $_SESSION["user_address"] = $row["user_address"];
+        $_SESSION["user_email"] = $row["user_email"];
+        $_SESSION["user_role"] = $row["user_role"];
 
-                header('Location: index.php'); // Site Client
-            }
-        } else {
-            session_destroy();
+        if ($_SESSION["user_role"] == 5) {
+            header('Location: index.php'); // Admin
+        }
+        if ($_SESSION["user_role"] == 1) {
+            header('Location: index.php'); // Site Client
         }
     } else {
         return "incorrect";
@@ -291,7 +283,7 @@ function addComment($comment_text, $user_id, $product_id)
  * Join comments table and products table
  *
  * @param [int] $comment_id
- * @return void
+ * @return array
  */
 function commentartbyId($comment_id)
 {
@@ -311,8 +303,11 @@ function commentartbyId($comment_id)
 function deleteComment($comment_id)
 {
     global $start;
+
     $delete = "DELETE FROM comments WHERE comment_id = $comment_id";
+
     $request = $start->prepare($delete);
+    
     $request->execute();
 }
 /**
