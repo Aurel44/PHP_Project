@@ -40,14 +40,19 @@ $user_id = @$_SESSION["user_id"];
         <li class="nav-item active">
           <a class="nav-link" href="shop.php"><i class="fas fa-store"></i> Shop</a>
         </li>
-        <?php if (@$_SESSION["user_name"]) { ?>
+        <?php if (@$_SESSION["user_role"] == 1) { ?>
           <li class="nav-item active">
             <a class="nav-link" href="contact.php"><i class="fas fa-id-card"></i> Contact</a>
           </li>
         <?php } ?>
+        <?php if (@$_SESSION["user_role"] == 5) { ?>
+          <li class="nav-item active">
+            <a class="nav-link" href="admin/addproduct.php"><i class="fas fa-id-card"></i> Espace Admin</a>
+          </li>
+        <?php } ?>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <?php if (@$_SESSION["user_name"]) { ?>
+        <?php if (@$_SESSION["user_role"] == 1) { ?>
           <li class="nav-item active">
             <div class="nav-link">
               Your cart
@@ -58,6 +63,8 @@ $user_id = @$_SESSION["user_id"];
               <h4><a href="cart.php"><i class="fab fa-shopify"></i></a></h4>
             </div>
           </li>
+          <?php } ?>
+          <?php if (@$_SESSION["user_role"] != null) { ?>
           <li class="nav-item active">
             <div class="nav-link">
               Bonjour <?= @$_SESSION["user_name"] ?> <?= @$_SESSION["user_firstname"] ?>
@@ -75,7 +82,7 @@ $user_id = @$_SESSION["user_id"];
     </div>
   </nav>
 
-  <!-- Admin Nav Bar -->
+  <!-- Admin Nav Bar
   <?php if (@$_SESSION["user_role"] == 5) { ?>
     <div class="row item_display">
       <nav class="navbar navbar-expand-lg navbar-dark bg-light">
@@ -101,4 +108,4 @@ $user_id = @$_SESSION["user_id"];
         </div>
       </nav>
     </div>
-  <?php } ?>
+  <?php } ?> -->

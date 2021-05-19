@@ -1,10 +1,4 @@
-<?php 
-var_dump(@$_SESSION["user_role"]);
-
-if (@$_SESSION["user_role"] === "5") { ?>
-
-
-<?php include_once "../header.php" ?>
+<?php include_once "header_admin.php" ?>
 
 <?php
 
@@ -114,6 +108,3 @@ $listCat = listCat();
 
 
 <?php include_once "../footer.php" ?>
-<?php } else { ?>
-    <h1> Désolé vous n'avez pas les droits d'accès à cette page.</h1>
-<?php } ?>

@@ -123,3 +123,17 @@ $url_confirmation = 'http://localhost/project1/admin/paypal-confirmation.php?id=
 </div>
 
 <?php include_once "footer.php" ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
